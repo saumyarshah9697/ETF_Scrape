@@ -11,7 +11,7 @@ def parse_response(data, info):
         info.append(holding)
     return info
 
-for i in range(1,2):
+for i in range(1,4):
     req_url ='https://etfdb.com/data_set/?tm=40284&cond={%22by_etf%22:783}&no_null_sort=true&count_by_id=&sort=weight&order=desc&limit='+str(15*i)+'&offset='+str(15*(i-1))
     resp = requests.get(req_url)
     data = resp.content
