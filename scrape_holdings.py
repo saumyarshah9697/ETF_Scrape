@@ -4,7 +4,6 @@ info = []
 def parse_response(data, info):
     for row in data["rows"]:
         name = row["holding"].split('>')[1].split('(')[0]
-        print(name)
         holding = {
             "name": name,
             "weight": row["weight"]
@@ -14,7 +13,6 @@ def parse_response(data, info):
 
 for i in range(1,2):
     req_url ='https://etfdb.com/data_set/?tm=40284&cond={%22by_etf%22:783}&no_null_sort=true&count_by_id=&sort=weight&order=desc&limit='+str(15*i)+'&offset='+str(15*(i-1))
-    print(req_url)
     resp = requests.get(req_url)
     data = resp.content
     jsn = json.loads(data)
